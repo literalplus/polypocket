@@ -75,7 +75,7 @@ java \
   -jar $SERVER_JAR
 
 # oh no we're dead rip
-echo 'Server exited! (PID: $MC_PID)'
+echo "Server exited! (PID: $MC_PID)"
 rm mc.pid
 
 # This is why you need a wrapper script
