@@ -37,6 +37,13 @@ care of launching Polypocket and also restarting it
 from time to time. Polypocket then takes care of keeping
 your server binary and plugins up to date.
 
+By copying the server binary and plugin jars over before
+starting the server, but never while it is running,
+Polypocket effectively prevents those nasty
+`NoClassDefFoundError`s that usually occur when you
+replace `jar`s in place, requiring you to reload
+or restart immediately.
+
 # Folders
 
 ## Polypocket template folder
