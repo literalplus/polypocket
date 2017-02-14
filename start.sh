@@ -32,11 +32,9 @@ if [ "$KILL_IF_PID" = true ]; then
   if [ -r "mc.pid" ]; then
     PREV_PID=$(cat mc.pid)
     echo "A previous instance was not stopped cleanly - Killing PID $PREV_PID."
-    kill -0 $PREV_PID
-    if [ "$?" == 0 ]; then
+    if kill -0 $PREV_PID; then
       # It refused to kill itself, so we got to murder it
-      kill -9 $PREV_PID
-      if [ "$?" == 0 ]; then
+      if kill -9 $PREV_PID; then
         echo "Killed $PREV_PID."
       else
         echo "Failed to kill $PREV_PID...exiting!"
