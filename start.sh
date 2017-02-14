@@ -28,22 +28,21 @@ mkdir -p $PLUGINS_FOLDER
 rsync -rtvucL --progress $UPSTREAM_PLUGINS_FOLDER $PLUGINS_FOLDER
 
 # Try to kill dead previous instance
-if [ "$KILL_IF_PID" = true ]; then
-  if [ -r "mc.pid" ]; then
-    PREV_PID=$(cat mc.pid)
-    echo "A previous instance was not stopped cleanly - Killing PID $PREV_PID."
-    if kill -0 $PREV_PID; then
-      # It refused to kill itself, so we got to murder it
-      if kill -9 $PREV_PID; then
-        echo "Killed $PREV_PID."
-      else
-        echo "Failed to kill $PREV_PID...exiting!"
-        exit 1
-      fi
+PID_FILE="mc.pid"
+if [ "$KILL_IF_PID" = true ] && [ -r "$PID_FILE" ]; then
+  PREV_PID=$(cat $PID_FILE)
+  echo "A previous instance was not stopped cleanly - Killing PID $PREV_PID."
+  if kill -0 $PREV_PID; then
+    # It refused to kill itself, so we got to murder it
+    if kill -9 $PREV_PID; then
+      echo "Killed $PREV_PID."
     else
-      echo "Already dead. Nice!"
-      rm mc.pid
+      echo "Failed to kill $PREV_PID...exiting!"
+      exit 1
     fi
+  else
+    echo "Already dead. Nice!"
+    rm mc.pid
   fi
 fi
 
