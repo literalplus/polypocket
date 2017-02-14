@@ -29,7 +29,7 @@ rsync -rtvucL --progress $UPSTREAM_PLUGINS_FOLDER $PLUGINS_FOLDER
 
 # Try to kill dead previous instance
 if [ "$KILL_IF_PID" = true ]; then
-  if [ -f "mc.pid" ]; then
+  if [ -r "mc.pid" ]; then
     PREV_PID=$(cat mc.pid)
     echo "A previous instance was not stopped cleanly - Killing PID $PREV_PID."
     kill -0 $PREV_PID
