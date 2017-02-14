@@ -10,6 +10,10 @@
 umask 002
 
 # --- Configuration is done in config.sh
+if ! [ -r config.sh ]; then
+  >&2 echo "$0: Please copy template-config.sh to config.sh and configure Polypocket."
+  exit 1
+fi
 # config.sh calls the global config defaults file
 # to make up for any new, not-yet-configured properties.
 source config.sh
