@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Polypocket - https://github.com/xxyy/polypocket
 # Consult the LICENSE and README.md files for more info.
