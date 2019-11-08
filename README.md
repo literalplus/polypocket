@@ -17,7 +17,7 @@ and is licensed under the MIT License, a copy of which
 can be found in the `LICENSE` file bundled
 with this repository.
 
-If this helped you, consider checking out [Spigotctl](https://gist.github.com/xxyy/f3327e2642a07fe2fac42597b583e929),
+If this helped you, consider checking out [Spigotctl](https://gist.github.com/literalplus/f3327e2642a07fe2fac42597b583e929),
 which provides integration between Systemd, Tmux, and Spigot.
 
 # Concept
@@ -90,7 +90,7 @@ with newer versions for testing servers.
 
  1. Clone this repository:
      ```bash
-     git clone https://github.com/xxyy/polypocket
+     git clone https://github.com/literalplus/polypocket
      ```
 
  2. Copy `template-config.sh` to `config.sh` and
